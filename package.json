@@ -1,6 +1,6 @@
 {
   "name": "@arcav-ia/flow",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Universal CLI and Template to deploy Antigravity Agentic Flow with Zero-Trust governance and 8 Master Skills",
   "type": "module",
   "main": "src/index.js",

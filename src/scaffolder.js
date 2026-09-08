@@ -35,6 +35,7 @@ export async function scaffoldProject({ targetDir, mode = 'operative' }) {
   // 3. Crear directorios base
   fs.mkdirSync(path.join(targetDir, '.agents', 'rules'), { recursive: true });
   fs.mkdirSync(path.join(targetDir, '.agents', 'skills'), { recursive: true });
+  fs.mkdirSync(path.join(targetDir, '.agents', 'agents'), { recursive: true });
   fs.mkdirSync(path.join(targetDir, 'docs', 'walkthroughs'), { recursive: true });
 
   // 4. Desplegar reglas, AGENTS.md y task.md
@@ -59,6 +60,13 @@ export async function scaffoldProject({ targetDir, mode = 'operative' }) {
   // 5. Copiar Core Skills
   console.log(`  ${colors.cyan}•${colors.reset} Instalando las 8 Skills maestras...`);
   copyDirRecursive(coreSkillsDir, path.join(targetDir, '.agents', 'skills'));
+
+  // 5b. Desplegar los 10 Agentes Autónomos del Squad
+  console.log(`  ${colors.cyan}•${colors.reset} Desplegando los 10 Agentes especializados del Squad...`);
+  const coreAgentsDir = path.join(TEMPLATES_DIR, 'core-agents');
+  if (fs.existsSync(coreAgentsDir)) {
+    copyDirRecursive(coreAgentsDir, path.join(targetDir, '.agents', 'agents'));
+  }
 
   // 6. Configuración de variables de entorno (.env.example y .env)
   console.log(`  ${colors.cyan}•${colors.reset} Configurando variables de entorno...`);

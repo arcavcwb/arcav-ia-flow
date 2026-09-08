@@ -15,6 +15,19 @@ export const CORE_SKILLS = [
   'playwright-e2e-suite',
 ];
 
+export const SQUAD_AGENTS = [
+  'architect-agent',
+  'pr-reviewer-agent',
+  'po-agent',
+  'scrum-master-agent',
+  'designer-agent',
+  'frontend-dev-agent',
+  'backend-dev-agent',
+  'qa-agent',
+  'devops-agent',
+  'automation-agent',
+];
+
 export function runDoctor(targetDir = process.cwd()) {
   console.log(`${colors.cyan}${colors.bold}🩺 Ejecutando Antigravity Doctor en:${colors.reset} ${targetDir}\n`);
   let issues = 0;
@@ -74,6 +87,22 @@ export function runDoctor(targetDir = process.cwd()) {
     console.log(`  ${colors.green}✓${colors.reset} Todas las skills maestras presentes (${foundSkills}/${CORE_SKILLS.length})`);
   } else {
     console.log(`  ${colors.yellow}⚠${colors.reset} Faltan skills maestras en .agents/skills/ (${foundSkills}/${CORE_SKILLS.length} encontradas)`);
+    issues++;
+  }
+
+  // 5b. Squad Agents Check
+  const agentsDir = path.join(targetDir, '.agents', 'agents');
+  let foundAgents = 0;
+  for (const agent of SQUAD_AGENTS) {
+    if (fs.existsSync(path.join(agentsDir, agent))) {
+      foundAgents++;
+    }
+  }
+
+  if (foundAgents === SQUAD_AGENTS.length) {
+    console.log(`  ${colors.green}✓${colors.reset} Todos los agentes del Squad presentes (${foundAgents}/${SQUAD_AGENTS.length})`);
+  } else {
+    console.log(`  ${colors.yellow}⚠${colors.reset} Faltan agentes del Squad en .agents/agents/ (${foundAgents}/${SQUAD_AGENTS.length} encontrados)`);
     issues++;
   }
 

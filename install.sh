@@ -50,12 +50,14 @@ fi
 # Copiar reglas, skills y templates
 mkdir -p "$TARGET_DIR/.agents/rules"
 mkdir -p "$TARGET_DIR/.agents/skills"
+mkdir -p "$TARGET_DIR/.agents/agents"
 mkdir -p "$TARGET_DIR/docs/walkthroughs"
 
 cp "$SOURCE_DIR/templates/mode-operative/rules/superules.md" "$TARGET_DIR/.agents/rules/superules.md"
 cp "$SOURCE_DIR/templates/mode-operative/AGENTS.md" "$TARGET_DIR/AGENTS.md"
 cp "$SOURCE_DIR/templates/mode-operative/task-template.md" "$TARGET_DIR/task.md"
 cp -r "$SOURCE_DIR/templates/core-skills/"* "$TARGET_DIR/.agents/skills/"
+cp -r "$SOURCE_DIR/templates/core-agents/"* "$TARGET_DIR/.agents/agents/"
 
 if [[ ! -f "$TARGET_DIR/.env" ]]; then
   cp "$SOURCE_DIR/templates/mode-operative/.env.example" "$TARGET_DIR/.env"
