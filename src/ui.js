@@ -17,8 +17,8 @@ export function showBanner() {
   console.log(`
 ${colors.cyan}${colors.bold}╔═══════════════════════════════════════════════════════════════╗
 ║             ⚡ @arcav-ia/flow — Antigravity CLI ⚡             ║
-║         Zero-Trust Agentic Architecture & Governance          ║
-║      Impeccable • Caveman • Ponytail • Contract-First         ║
+║            Personal Agentic Development Toolkit               ║
+║      10 Squad Agents • 8 Core Skills • Zero-Trust Engine      ║
 ╚═══════════════════════════════════════════════════════════════╝${colors.reset}
 `);
 }

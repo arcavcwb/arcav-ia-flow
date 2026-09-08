@@ -12,7 +12,7 @@ NC="\033[0m"
 echo -e "${CYAN}${BOLD}"
 echo "╔═══════════════════════════════════════════════════════════════╗"
 echo "║             ⚡ @arcav-ia/flow — Antigravity CLI ⚡             ║"
-echo "║             Universal Agentic Flow One-Liner                  ║"
+echo "║             Personal Agentic Flow Installer                   ║"
 echo "╚═══════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
